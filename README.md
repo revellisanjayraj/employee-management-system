@@ -80,8 +80,8 @@
 
   ## 📸 Screenshots
 
-  <img width="1916" height="706" alt="image" src="vue-emp/src/assets/Screenshot 2026-05-05 115749.png" />
-  <img width="1915" height="418" alt="image" src="vue-emp/src/assets/Screenshot 2026-05-05 115806.png" />
+  ![img1](<src/assets/Screenshot 2026-05-05 115749.png>)
+  ![img2](<src/assets/Screenshot 2026-05-05 115806.png>)
 
 
   ---
