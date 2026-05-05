@@ -1,7 +1,6 @@
 <template>
 <div class="container mt-4">
-  <table class="table table-striped table-bordered table-hover">
-
+  <table class="table table-striped table-bordered">
     <thead class="table-dark">
       <tr>
         <th>Emp ID</th>
@@ -21,25 +20,12 @@
         <td>{{ item.sal }}</td>
       </tr>
     </tbody>
-
   </table>
 </div>
 </template>
+
 <script>
-import axios from 'axios';
 export default {
-    name: "Employees",
-    data() {
-        return {
-            list:[]
-        }
-    },
-    mounted() {
-        axios.get("https://69e8965055d62f34797967c8.mockapi.io/api/emp")
-            .then((res) => {
-                this.list = res.data;
-            })
-        .catch(err => console.log(err));
-    }
+  props: ["list"]   // 👈 from parent
 }
 </script>

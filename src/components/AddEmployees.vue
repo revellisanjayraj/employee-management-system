@@ -1,84 +1,75 @@
 <template>   
   <form @submit.prevent="postData">
-  <div class="container mt-5">
-    
-    <h2 class="text-center mb-4">Employee Management System</h2>
-    <p class="text-center mb-4">A Vue.js-based CRUD Application for Managing Employee Records</p>
+    <div class="container mt-5">
+      <h2 class="text-center mb-4">Employee Management System</h2>
 
-    <div class="row g-3">
+      <div class="row g-3">
 
-      <div class="col-md-2">
-        <label>Emp ID</label>
-        <input type="number" class="form-control" v-model="emp.eid">
+        <div class="col-md-2">
+          <input type="number" class="form-control" placeholder="Emp ID" v-model="emp.eid">
+        </div>
+
+        <div class="col-md-3">
+          <input type="text" class="form-control" placeholder="Name" v-model="emp.name">
+        </div>
+
+        <div class="col-md-3">
+          <input type="text" class="form-control" placeholder="Designation" v-model="emp.desig">
+        </div>
+
+        <div class="col-md-2">
+          <select class="form-select" v-model="emp.dept">
+            <option disabled value="">Department</option>
+            <option>HR</option>
+            <option>IT</option>
+            <option>Sales</option>
+          </select>
+        </div>
+
+        <div class="col-md-1">
+          <input type="number" class="form-control" placeholder="Salary" v-model="emp.sal">
+        </div>
+
+        <div class="col-md-1 d-flex align-items-end">
+          <button type="submit" class="btn btn-success w-100">ADD</button>
+        </div>
+
       </div>
-
-      <div class="col-md-3">
-        <label>Name</label>
-        <input type="text" class="form-control" v-model="emp.name">
-      </div>
-
-      <div class="col-md-3">
-        <label>Designation</label>
-        <input type="text" class="form-control" v-model="emp.desig">
-      </div>
-
-      <div class="col-md-2">
-        <label>Department</label>
-        <select class="form-select" v-model="emp.dept">
-          <option disabled value="">Choose...</option>
-          <option>HR</option>
-          <option>IT</option>
-          <option>Sales</option>
-          <option>Marketing</option>
-          <option>Finance</option>
-          <option>Administration</option>
-        </select>
-      </div>
-
-      <div class="col-md-1">
-        <label>Salary</label>
-        <input type="number" class="form-control" v-model="emp.sal">
-      </div>
-
-      <div class="col-md-1 d-flex align-items-end">
-        <button type="submit" class="btn btn-success w-100">ADD</button>
-      </div>
-
     </div>
+  </form>
+</template>
 
-  </div>
-</form>
-    </template>
 <script>
-import axios from 'axios';
+import axios from 'axios'
+
 export default {
-    name: 'Employees',
-    data() {
-        return {
-            emp:{
-                eid: 0,
-                name: null,
-                desig: null,
-                dept:"",
-                sal:0
-            }
-        }
-    },
-    methods: {
-        postData(e) {
-            axios.post("https://69e8965055d62f34797967c8.mockapi.io/api/emp", {
-                eid: this.emp.eid,
-                name: this.emp.name,
-                desig: this.emp.desig,
-                dept: this.emp.dept,
-                sal: this.emp.sal
-            })
-                .then(res => console.log(res.data))
-                .catch(err => console.log(err));
-             
-        }
+  data() {
+    return {
+      emp:{
+        eid: 0,
+        name: "",
+        desig: "",
+        dept: "",
+        sal: 0
+      }
     }
+  },
+
+  methods: {
+    async postData() {
+      await axios.post("https://69e8965055d62f34797967c8.mockapi.io/api/emp", this.emp)
+
+      this.$emit("refresh")   // 🔥 update list
+
+      // clear form
+      this.emp = {
+        eid: 0,
+        name: "",
+        desig: "",
+        dept: "",
+        sal: 0
+      }
+    }
+  }
 }
 </script>
-<style>
-</style>
