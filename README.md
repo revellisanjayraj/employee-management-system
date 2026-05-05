@@ -80,8 +80,8 @@
 
   ## 📸 Screenshots
 
-  <img width="1916" height="706" alt="image" src="https://github.com/user-attachments/assets/1e60d870-2dcc-448b-abbe-f79cc68c48cf" />
-  <img width="1915" height="418" alt="image" src="https://github.com/user-attachments/assets/c905be3b-eeb9-4bdf-b51a-3629fca8dab6" />
+  <img width="1916" height="706" alt="image" src="vue-emp/src/assets/Screenshot 2026-05-05 115749.png" />
+  <img width="1915" height="418" alt="image" src="vue-emp/src/assets/Screenshot 2026-05-05 115806.png" />
 
 
   ---
